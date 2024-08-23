@@ -2,6 +2,51 @@
 
 .calculator {
   background: $clr-neutral-100;
+  #form {
+    color: $clr-neutral-700;
+    font-weight: 600;
+
+    fieldset:has(> #bill) {
+      position: relative;
+      &::after {
+        content: url("../images/icon-dollar.svg");
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+      }
+    }
+    fieldset:has(> #people) {
+      position: relative;
+      &::after {
+        content: url("../images/icon-person.svg");
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+      }
+    }
+    input[type="number"] {
+      background: $clr-neutral-200;
+      font-size: $fs-inputs;
+      color: $clr-neutral-500;
+      padding: 1rem;
+      text-align: right;
+    }
+    label,
+    legend {
+      margin-bottom: 0.5rem;
+    }
+    .tip-selector__tip {
+      background-color: $clr-neutral-900;
+      color: $clr-neutral-100;
+    }
+    #custom-tip {
+      &::placeholder {
+        color: $clr-neutral-700;
+        font-weight: 700;
+        text-align: center;
+      }
+    }
+  }
 
   .display {
     background: $clr-neutral-900;

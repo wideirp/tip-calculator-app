@@ -123,50 +123,48 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: none;
 }
 body .calculator {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-@media screen and (min-width: 768px) {
-  body .calculator {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
+  gap: 2rem;
 }
 body .calculator #form .input-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  gap: none;
 }
 body .calculator #form .tip-selector {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  gap: none;
 }
 body .calculator #form .tip-selector .tip-selector__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 0.75rem;
 }
 body .calculator .display {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  gap: none;
 }
 body .calculator .display .display__wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: none;
 }
 
 .flow > * + * {
@@ -188,6 +186,53 @@ body .calculator .display .display__wrapper {
 
 .calculator {
   background: white;
+}
+.calculator #form {
+  color: hsl(186, 14%, 43%);
+  font-weight: 600;
+}
+.calculator #form fieldset:has(> #bill) {
+  position: relative;
+}
+.calculator #form fieldset:has(> #bill)::after {
+  content: url("../images/icon-dollar.svg");
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+}
+.calculator #form fieldset:has(> #people) {
+  position: relative;
+}
+.calculator #form fieldset:has(> #people)::after {
+  content: url("../images/icon-person.svg");
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+}
+.calculator #form input[type=number] {
+  background: hsl(189, 41%, 97%);
+  font-size: 1.5rem;
+  color: hsl(184, 14%, 56%);
+  padding: 1rem;
+  text-align: right;
+}
+.calculator #form label,
+.calculator #form legend {
+  margin-bottom: 0.5rem;
+}
+.calculator #form .tip-selector__tip {
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+}
+.calculator #form #custom-tip::-moz-placeholder {
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+  text-align: center;
+}
+.calculator #form #custom-tip::placeholder {
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+  text-align: center;
 }
 .calculator .display {
   background: hsl(183, 100%, 15%);
