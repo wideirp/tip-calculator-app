@@ -1,0 +1,12 @@
+$clr-primary: hsl(172, 67%, 45%);
+
+$clr-neutral-100: white;
+$clr-neutral-200: hsl(189, 41%, 97%);
+$clr-neutral-400: hsl(185, 41%, 84%);
+$clr-neutral-500: hsl(184, 14%, 56%);
+$clr-neutral-700: hsl(186, 14%, 43%);
+$clr-neutral-900: hsl(183, 100%, 15%);
+
+$fs-label: 1rem;
+$fs-inputs: 1.5rem;
+$fs-outputs: clamp(2rem, calc(1rem + 4vw), 3rem);

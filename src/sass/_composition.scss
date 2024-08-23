@@ -1,0 +1,12 @@
+@use "mixins" as *;
+
+body {
+  @include fbx(column, $align: center);
+
+  .calculator {
+    @include fbx(column, $align: center);
+    @include mq(md) {
+      @include fbx(row);
+    }
+  }
+}
