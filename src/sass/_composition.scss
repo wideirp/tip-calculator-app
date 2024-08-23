@@ -26,6 +26,9 @@ body {
       .display__wrapper {
         @include fbx($justify: space-between, $align: center);
       }
+      // .btn {
+      //   justify-self: flex-end;
+      // }
     }
   }
 }

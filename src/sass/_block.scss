@@ -1,0 +1,9 @@
+@use "variables" as *;
+
+.calculator {
+  background: $clr-neutral-100;
+
+  .display {
+    background: $clr-neutral-900;
+  }
+}

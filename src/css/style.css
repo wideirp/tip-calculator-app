@@ -113,6 +113,11 @@ p {
   margin: 0;
 }
 
+input {
+  outline: none;
+  border: none;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -162,4 +167,28 @@ body .calculator .display .display__wrapper {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.flow > * + * {
+  margin-top: 2rem;
+}
+
+.wrapper {
+  padding: 2rem;
+  border-radius: 25px;
+}
+
+.btn {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.calculator {
+  background: white;
+}
+.calculator .display {
+  background: hsl(183, 100%, 15%);
 }/*# sourceMappingURL=style.css.map */
