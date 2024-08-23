@@ -1,12 +1,31 @@
 @use "mixins" as *;
 
 body {
-  @include fbx(column, $align: center);
-
+  @include fbx(column, $justify: center, $align: center);
   .calculator {
     @include fbx(column, $align: center);
     @include mq(md) {
       @include fbx(row);
+    }
+    #form {
+      .input-wrapper {
+        @include fbx(column);
+      }
+      .tip-selector {
+        @include fbx(column);
+        .tip-selector__grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          gap: 0.75rem;
+        }
+      }
+    }
+    .display {
+      width: 100%;
+      @include fbx(column);
+      .display__wrapper {
+        @include fbx($justify: space-between, $align: center);
+      }
     }
   }
 }
