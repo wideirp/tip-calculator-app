@@ -1,54 +1,86 @@
 @use "variables" as *;
+@use "mixins" as *;
+
+.logo {
+  // padding: 3rem 0 clamp(3rem, calc(1rem + 1vw), 5.5rem) 0;
+  padding: 1rem;
+  p {
+    margin: 0;
+    color: $clr-neutral-900;
+    font-weight: 700;
+    letter-spacing: 0.75rem;
+    font-size: $fs-logo;
+  }
+}
 
 .calculator {
   background: $clr-neutral-100;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   #form {
     color: $clr-neutral-700;
     font-weight: 600;
-
-    fieldset:has(> #bill) {
+    fieldset {
       position: relative;
-      &::after {
+      label {
+        font-size: $fs-label;
+      }
+      &:has(> #bill)::after {
         content: url("../images/icon-dollar.svg");
-        position: absolute;
-        bottom: 1rem;
-        left: 1rem;
       }
-    }
-    fieldset:has(> #people) {
-      position: relative;
-      &::after {
+      &:has(> #people)::after {
         content: url("../images/icon-person.svg");
-        position: absolute;
-        bottom: 1rem;
-        left: 1rem;
       }
-    }
-    input[type="number"] {
-      background: $clr-neutral-200;
-      font-size: $fs-inputs;
-      color: $clr-neutral-500;
-      padding: 1rem;
-      text-align: right;
-    }
-    label,
-    legend {
-      margin-bottom: 0.5rem;
-    }
-    .tip-selector__tip {
-      background-color: $clr-neutral-900;
-      color: $clr-neutral-100;
-    }
-    #custom-tip {
-      &::placeholder {
-        color: $clr-neutral-700;
-        font-weight: 700;
-        text-align: center;
+      &::after {
+        position: absolute;
+        bottom: calc($fs-inputs / 4);
+        left: calc($fs-inputs / 2);
+      }
+      input[type="number"] {
+        background: $clr-neutral-200;
+        font-size: $fs-inputs;
+        color: $clr-neutral-900;
+        padding: calc($fs-inputs / 2) calc($fs-inputs / 4);
+        text-align: right;
+        &::placeholder {
+          color: $clr-neutral-500;
+        }
+      }
+      &.tip-selector {
+        .tip-selector__grid {
+          margin-top: $fs-inputs;
+          .tip-selector__tip {
+            background: $clr-neutral-900;
+            color: $clr-neutral-100;
+          }
+        }
       }
     }
   }
-
   .display {
     background: $clr-neutral-900;
+    color: $clr-neutral-100;
+    .display__wrapper {
+      margin-bottom: 1.5rem;
+      @include fbx($justify: space-between);
+      .display__text {
+        h5 {
+          font-size: $fs-label;
+        }
+        p {
+          font-size: 0.8rem;
+          color: $clr-neutral-500;
+        }
+      }
+      #tip-amount,
+      #total-amount {
+        color: $clr-primary;
+        text-align: right;
+      }
+    }
+    button {
+      background: $clr-primary;
+      text-transform: uppercase;
+    }
   }
 }

@@ -18,16 +18,19 @@
     <script src="src/js/main.js" defer></script>
   </head>
   <body>
-    <div class="logo">SPLITTER</div>
+    <div class="logo">
+      <p>SPLI</p>
+      <p>TTER</p>
+    </div>
 
     <main class="calculator wrapper">
       <form action="" id="form" class="flow">
-        <fieldset class="input-wrapper">
+        <fieldset class="input-wrapper flow">
           <label for="bill">Bill</label>
-          <input type="number" id="bill" name="bill" />
+          <input type="number" id="bill" name="bill" placeholder="0" />
         </fieldset>
 
-        <fieldset class="tip-selector">
+        <fieldset class="tip-selector flow">
           <legend>Select Tip %</legend>
           <div class="tip-selector__grid">
             <button type="button" class="tip-selector__tip btn tip5">5%</button>
@@ -52,26 +55,26 @@
           </div>
         </fieldset>
 
-        <fieldset class="input-wrapper">
+        <fieldset class="input-wrapper flow">
           <label for="people">Number of People</label>
-          <input type="number" id="people" name="people" />
+          <input type="number" id="people" name="people" placeholder="0" />
         </fieldset>
       </form>
 
-      <section class="display wrapper flow">
+      <section class="display wrapper">
         <div class="display__wrapper">
-          <div>
+          <div class="display__text">
             <h5>Tip Amount</h5>
             <p>/ person</p>
           </div>
-          <h2 id="tip-amount">$4.37</h2>
+          <h2 id="tip-amount">$0.00</h2>
         </div>
         <div class="display__wrapper">
-          <div>
+          <div class="display__text">
             <h5>Total</h5>
             <p>/ person</p>
           </div>
-          <h2 id="total-amount">$34.37</h2>
+          <h2 id="total-amount">$9999.99</h2>
         </div>
         <button class="btn" type="reset">Reset</button>
       </section>

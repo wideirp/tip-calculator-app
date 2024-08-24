@@ -1,18 +1,19 @@
 @use "variables" as *;
 
 .flow > * + * {
-  margin-top: 2rem;
+  margin-top: $fs-label;
 }
 
 .wrapper {
-  padding: 2rem;
+  padding: calc($fs-label * 1.5);
   border-radius: 25px;
 }
 
 .btn {
-  padding: 0.5rem;
+  padding: 1rem;
   font-size: $fs-inputs;
   outline: none;
   border: none;
   width: 100%;
+  border-radius: 5px;
 }
