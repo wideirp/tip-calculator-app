@@ -14,7 +14,7 @@ export class Calculator {
   }
 
   constructor(tipEl, totalEl) {
-    this.inputs = { bill: 0, tip: 0, people: 0 };
+    this.inputs = { bill: 0, tip: 0.25, people: 0 };
     this.outputs = { tip: 0, total: 0 };
     this.elements = {
       display: { tip: tipEl, total: totalEl },
@@ -42,7 +42,19 @@ export class Calculator {
 
   handleTipBtnClick = (event) => {
     event.preventDefault();
-    console.log(event.target);
+    if (event.target.dataset.state !== "selected") {
+      event.target.parentNode
+        .querySelectorAll(".tip-selector__tip")
+        .forEach((tipBtn) => {
+          if (tipBtn === event.target) {
+            tipBtn.dataset.state = "selected";
+            this.inputs.tip = parseFloat(tipBtn.dataset.amount);
+            this.calculateTip();
+          } else {
+            tipBtn.dataset.state = "";
+          }
+        });
+    }
   };
 
   handleCustomTipInput = (event) => {
