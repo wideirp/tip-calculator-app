@@ -19,6 +19,7 @@ export class Calculator {
     this.elements = {
       inputs: {
         bill: form.querySelector("#bill"),
+        tipBtns: form.querySelectorAll(".tip-selector__tip"),
         people: form.querySelector("#people"),
       },
       display: { form: form, tip: tipEl, total: totalEl },
@@ -78,6 +79,15 @@ export class Calculator {
     this.elements.inputs.people.value = "";
     this.elements.inputs.people.dataset.state = "init";
     this.inputs.people = 0;
+
+    // reset tip selector
+    this.elements.inputs.tipBtns.forEach((tipBtn) => {
+      if (parseFloat(tipBtn.dataset.amount) === 0.25) {
+        tipBtn.dataset.state = "selected";
+      } else {
+        tipBtn.dataset.state = "";
+      }
+    });
 
     // reset display
     this.calculateTip();
