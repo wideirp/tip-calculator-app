@@ -15,7 +15,7 @@ export class Calculator {
 
   constructor(tipEl, totalEl) {
     this.inputs = { bill: 0, tip: 0, people: 0 };
-    this.outputs = { tip: 13.97, total: 137.34543532 };
+    this.outputs = { tip: 0, total: 0 };
     this.elements = {
       display: { tip: tipEl, total: totalEl },
     };
@@ -25,12 +25,19 @@ export class Calculator {
   handleBillInput = (event) => {
     event.preventDefault();
     const [input, isValid] = this.validateFloat2(event.target.value);
-    console.log(input, isValid);
+    if (isValid) {
+      this.inputs.bill = parseFloat(input);
+      this.calculateTip();
+    }
   };
 
   handlePeopleInput = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
+    const [input, isValid] = this.validateInt(event.target.value);
+    if (isValid) {
+      this.inputs.people = parseInt(input);
+      this.calculateTip();
+    }
   };
 
   handleTipBtnClick = (event) => {
@@ -64,5 +71,6 @@ export class Calculator {
     }
     this.outputs.tip = tip;
     this.outputs.total = total;
+    this.setDisplay();
   };
 }
