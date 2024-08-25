@@ -12,8 +12,6 @@ const tipDisplay = document.querySelector("#tip-amount");
 const totalDisplay = document.querySelector("#total-amount");
 
 const calc = new Calculator(tipDisplay, totalDisplay);
-calc.calculateTip();
-calc.setDisplay();
 
 billInput.addEventListener("input", calc.handleBillInput);
 peopleInput.addEventListener("input", calc.handlePeopleInput);
