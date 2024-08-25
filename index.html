@@ -15,7 +15,7 @@
     <title>Frontend Mentor | Tip calculator app</title>
 
     <link rel="stylesheet" href="src/css/style.css" />
-    <script src="src/js/main.js" defer></script>
+    <script src="src/js/main.js" type="module" defer></script>
   </head>
   <body>
     <div class="logo">
@@ -24,26 +24,60 @@
     </div>
 
     <main class="calculator wrapper">
-      <form action="" id="form" class="flow">
+      <form action="" id="form" class="flow" novalidate>
         <fieldset class="input-wrapper flow">
           <label for="bill">Bill</label>
-          <input type="number" id="bill" name="bill" placeholder="0" />
+          <input
+            type="number"
+            id="bill"
+            name="bill"
+            placeholder="0"
+            min="0"
+            step=".01"
+          />
         </fieldset>
 
         <fieldset class="tip-selector flow">
           <legend>Select Tip %</legend>
           <div class="tip-selector__grid">
-            <button type="button" class="tip-selector__tip btn tip5">5%</button>
-            <button type="button" class="tip-selector__tip btn tip10">
+            <button
+              type="button"
+              class="tip-selector__tip btn tip5"
+              data-state=""
+              data-amount=".05"
+            >
+              5%
+            </button>
+            <button
+              type="button"
+              class="tip-selector__tip btn tip10"
+              data-state=""
+              data-amount=".10"
+            >
               10%
             </button>
-            <button type="button" class="tip-selector__tip btn tip15">
+            <button
+              type="button"
+              class="tip-selector__tip btn tip15"
+              data-state=""
+              data-amount=".15"
+            >
               15%
             </button>
-            <button type="button" class="tip-selector__tip btn tip25">
+            <button
+              type="button"
+              class="tip-selector__tip btn tip25"
+              data-state="selected"
+              data-amount=".25"
+            >
               25%
             </button>
-            <button type="button" class="tip-selector__tip btn tip50">
+            <button
+              type="button"
+              class="tip-selector__tip btn tip50"
+              data-state=""
+              data-amount=".50"
+            >
               50%
             </button>
             <input
@@ -57,7 +91,14 @@
 
         <fieldset class="input-wrapper flow">
           <label for="people">Number of People</label>
-          <input type="number" id="people" name="people" placeholder="0" />
+          <input
+            type="number"
+            id="people"
+            name="people"
+            placeholder="0"
+            min="0"
+            step="1"
+          />
         </fieldset>
       </form>
 

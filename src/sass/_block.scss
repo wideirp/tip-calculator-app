@@ -52,6 +52,9 @@
           .tip-selector__tip {
             background: $clr-neutral-900;
             color: $clr-neutral-100;
+            &:hover {
+              background: $clr-primary;
+            }
           }
         }
       }

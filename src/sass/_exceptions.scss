@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+.calculator {
+  #form {
+    .tip-selector {
+      .tip-selector__grid {
+        .tip-selector__tip[data-state="selected"] {
+          background: $clr-primary;
+        }
+      }
+    }
+  }
+}
