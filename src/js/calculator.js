@@ -1,8 +1,20 @@
-export function Calculator() {}
+export function Calculator(tipEl, totalEl) {
+  this.inputs = { bill: 0, tip: 0, people: 0 };
+  this.outputs = { tip: 13.97, total: 137.34543532 };
+  this.elements = {
+    display: { tip: tipEl, total: totalEl },
+  };
+}
 
-// Calculator.prototype.setTipPercent = (percent) => {
-//   this.tipPercent = percent;
-// };
+Calculator.prototype.calculateTip = function () {
+  this.outputs.tip = (this.inputs.bill * this.inputs.tip) / this.inputs.people;
+  this.outputs.total = this.inputs.bill / this.inputs.people + this.outputs.tip;
+};
+
+Calculator.prototype.setDisplay = function () {
+  this.elements.display.tip.innerHTML = "$" + this.outputs.tip.toFixed(2);
+  this.elements.display.total.innerHTML = "$" + this.outputs.total.toFixed(2);
+};
 
 // EVENT HANDLERS
 Calculator.prototype.handleBillInput = (event) => {
