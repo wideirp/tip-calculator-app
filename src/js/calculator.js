@@ -7,8 +7,16 @@ export function Calculator(tipEl, totalEl) {
 }
 
 Calculator.prototype.calculateTip = function () {
-  this.outputs.tip = (this.inputs.bill * this.inputs.tip) / this.inputs.people;
-  this.outputs.total = this.inputs.bill / this.inputs.people + this.outputs.tip;
+  let tip = (this.inputs.bill * this.inputs.tip) / this.inputs.people;
+  let total = this.inputs.bill / this.inputs.people + tip;
+  if (isNaN(tip)) {
+    tip = 0;
+  }
+  if (isNaN(total)) {
+    total = 0;
+  }
+  this.outputs.tip = tip;
+  this.outputs.total = total;
 };
 
 Calculator.prototype.setDisplay = function () {
