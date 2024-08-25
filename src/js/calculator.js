@@ -20,6 +20,7 @@ export class Calculator {
       inputs: {
         bill: form.querySelector("#bill"),
         tipBtns: form.querySelectorAll(".tip-selector__tip"),
+        customTip: form.querySelector("#custom-tip"),
         people: form.querySelector("#people"),
       },
       display: { form: form, tip: tipEl, total: totalEl },
@@ -59,12 +60,22 @@ export class Calculator {
             tipBtn.dataset.state = "";
           }
         });
+      this.elements.inputs.customTip.dataset.state = "";
+      this.elements.inputs.customTip.value = "";
     }
   };
 
   handleCustomTipInput = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
+    const [input, isValid] = this.validateInt(event.target.value);
+    this.inputs.tip = parseFloat(input / 100).toFixed(2);
+    this.calculateTip();
+    if (event.target.dataset.state !== "selected") {
+      event.target.dataset.state = "selected";
+      this.elements.inputs.tipBtns.forEach((btn) => {
+        btn.dataset.state = "";
+      });
+    }
   };
 
   handleResetClick = (event) => {
@@ -80,7 +91,8 @@ export class Calculator {
     this.elements.inputs.people.dataset.state = "init";
     this.inputs.people = 0;
 
-    // reset tip selector
+    // reset tip btns
+    this.inputs.tip = 0.25;
     this.elements.inputs.tipBtns.forEach((tipBtn) => {
       if (parseFloat(tipBtn.dataset.amount) === 0.25) {
         tipBtn.dataset.state = "selected";
@@ -88,10 +100,11 @@ export class Calculator {
         tipBtn.dataset.state = "";
       }
     });
+    this.elements.inputs.customTip.value = "";
+    this.elements.inputs.customTip.dataset.state = "";
 
     // reset display
     this.calculateTip();
-    this.setDisplay();
   };
 
   setDisplay = () => {
