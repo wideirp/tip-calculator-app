@@ -13,11 +13,15 @@ export class Calculator {
     };
   }
 
-  constructor(tipEl, totalEl) {
+  constructor(form, tipEl, totalEl) {
     this.inputs = { bill: 0, tip: 0.25, people: 0 };
     this.outputs = { tip: 0, total: 0 };
     this.elements = {
-      display: { tip: tipEl, total: totalEl },
+      inputs: {
+        bill: form.querySelector("#bill"),
+        people: form.querySelector("#people"),
+      },
+      display: { form: form, tip: tipEl, total: totalEl },
     };
     this.setDisplay();
   }
@@ -64,7 +68,20 @@ export class Calculator {
 
   handleResetClick = (event) => {
     event.preventDefault();
-    console.log(event.target);
+
+    // reset bill input
+    this.elements.inputs.bill.value = "";
+    this.elements.inputs.bill.dataset.state = "init";
+    this.inputs.bill = 0;
+
+    // reset people input
+    this.elements.inputs.people.value = "";
+    this.elements.inputs.people.dataset.state = "init";
+    this.inputs.people = 0;
+
+    // reset display
+    this.calculateTip();
+    this.setDisplay();
   };
 
   setDisplay = () => {

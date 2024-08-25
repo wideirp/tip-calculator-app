@@ -1,6 +1,7 @@
 import { Calculator } from "./calculator.js";
 
 // inputs
+const form = document.querySelector("#form");
 const billInput = document.querySelector("#bill");
 const peopleInput = document.querySelector("#people");
 const customTipInput = document.querySelector("#custom-tip");
@@ -11,7 +12,7 @@ const resetBtn = document.querySelector("button[type='reset']");
 const tipDisplay = document.querySelector("#tip-amount");
 const totalDisplay = document.querySelector("#total-amount");
 
-const calc = new Calculator(tipDisplay, totalDisplay);
+const calc = new Calculator(form, tipDisplay, totalDisplay);
 
 billInput.addEventListener("input", calc.handleBillInput);
 peopleInput.addEventListener("input", calc.handlePeopleInput);
