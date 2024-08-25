@@ -115,10 +115,10 @@ export class Calculator {
   calculateTip = () => {
     let tip = (this.inputs.bill * this.inputs.tip) / this.inputs.people;
     let total = this.inputs.bill / this.inputs.people + tip;
-    if (isNaN(tip)) {
+    if (isNaN(tip) || !isFinite(tip)) {
       tip = 0;
     }
-    if (isNaN(total)) {
+    if (isNaN(total) || !isFinite(total)) {
       total = 0;
     }
     this.outputs.tip = tip;
