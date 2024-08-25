@@ -305,6 +305,15 @@ body .display button {
   text-transform: uppercase;
 }
 
+.calculator #form fieldset:has(> input[data-state=zero-error]) input {
+  border: 0.15rem solid #e17457;
+}
+.calculator #form fieldset:has(> input[data-state=zero-error])::before {
+  content: "Can't be zero";
+  position: absolute;
+  right: 0;
+  color: #e17457;
+}
 .calculator #form .tip-selector .tip-selector__grid .tip-selector__tip[data-state=selected] {
   background: hsl(172, 67%, 45%);
 }/*# sourceMappingURL=style.css.map */

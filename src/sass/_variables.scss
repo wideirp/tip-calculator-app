@@ -7,6 +7,8 @@ $clr-neutral-500: hsl(184, 14%, 56%);
 $clr-neutral-700: hsl(186, 14%, 43%);
 $clr-neutral-900: hsl(183, 100%, 15%);
 
+$clr-error: #e17457;
+
 $fs-label: clamp(0.5rem, calc(0.6rem + 1vw), 1rem);
 $fs-inputs: clamp(1rem, calc(0.6rem + 1vw), 1.5rem);
 $fs-outputs: clamp(2rem, calc(1rem + 4vw), 3rem);

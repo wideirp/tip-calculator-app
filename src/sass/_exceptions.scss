@@ -2,6 +2,19 @@
 
 .calculator {
   #form {
+    fieldset {
+      &:has(> input[data-state="zero-error"]) {
+        input {
+          border: 0.15rem solid $clr-error;
+        }
+        &::before {
+          content: "Can't be zero";
+          position: absolute;
+          right: 0;
+          color: $clr-error;
+        }
+      }
+    }
     .tip-selector {
       .tip-selector__grid {
         .tip-selector__tip[data-state="selected"] {
