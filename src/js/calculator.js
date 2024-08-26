@@ -34,6 +34,12 @@ export class Calculator {
     if (isValid) {
       this.inputs.bill = parseFloat(input);
       this.calculateTip();
+      console.log(input);
+      if (parseFloat(input) === 0) {
+        this.elements.inputs.bill.dataset.state = "zero-error";
+      } else {
+        this.elements.inputs.bill.dataset.state = "";
+      }
     }
   };
 
@@ -43,6 +49,11 @@ export class Calculator {
     if (isValid) {
       this.inputs.people = parseInt(input);
       this.calculateTip();
+      if (parseInt(input) === 0) {
+        this.elements.inputs.people.dataset.state = "zero-error";
+      } else {
+        this.elements.inputs.people.dataset.state = "";
+      }
     }
   };
 
