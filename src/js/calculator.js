@@ -2,12 +2,12 @@ export class Calculator {
   static {
     Calculator.prototype.validateFloat2 = (input) => {
       input = input.trim();
-      const pattern = /^[0-9]+\.?[0-9]?[0-9]?$/;
+      const pattern = /^\d*\.?\d{0,2}$/;
       return [input, pattern.test(input)];
     };
 
     Calculator.prototype.validateInt = (input) => {
-      input = input.trim();
+      input = input.trim().replace(".", "");
       const pattern = /^[0-9]+$/;
       return [input, pattern.test(input)];
     };
@@ -34,26 +34,31 @@ export class Calculator {
     if (isValid) {
       this.inputs.bill = parseFloat(input);
       this.calculateTip();
-      console.log(input);
-      if (parseFloat(input) === 0) {
+      if (parseFloat(input) === 0 || isNaN(parseFloat(input))) {
         this.elements.inputs.bill.dataset.state = "zero-error";
       } else {
         this.elements.inputs.bill.dataset.state = "";
       }
+    } else {
+      event.target.value = event.target.value.replace(event.key, "");
     }
   };
 
   handlePeopleInput = (event) => {
     event.preventDefault();
     const [input, isValid] = this.validateInt(event.target.value);
+    console.log(input, isValid);
     if (isValid) {
       this.inputs.people = parseInt(input);
       this.calculateTip();
-      if (parseInt(input) === 0) {
+      if (parseInt(input) === 0 || isNaN(parseInt(input))) {
         this.elements.inputs.people.dataset.state = "zero-error";
       } else {
         this.elements.inputs.people.dataset.state = "";
       }
+    } else {
+      console.log(event);
+      event.target.value = event.target.value.replace(event.key, "");
     }
   };
 

@@ -14,8 +14,8 @@ const totalDisplay = document.querySelector("#total-amount");
 
 const calc = new Calculator(form, tipDisplay, totalDisplay);
 
-billInput.addEventListener("input", calc.handleBillInput);
-peopleInput.addEventListener("input", calc.handlePeopleInput);
+billInput.addEventListener("keyup", calc.handleBillInput);
+peopleInput.addEventListener("keyup", calc.handlePeopleInput);
 customTipInput.addEventListener("input", calc.handleCustomTipInput);
 tipButtons.forEach((btn) =>
   btn.addEventListener("mouseup", calc.handleTipBtnClick)
